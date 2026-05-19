@@ -1,10 +1,17 @@
 [project]
-name = "staticpy"
+name = "_my-pytools"
 version = "0.1.0"
-description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.11"
 dependencies = [
     "beartype>=0.22.9",
     "mypy>=2.1.0",
 ]
+
+[project.scripts]
+_my-maintain = "_my_pytools.cli:main_maintenance"
+_my-setup = "_my_pytools.cli.setup_project:setup_project"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
