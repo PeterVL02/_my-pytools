@@ -3,7 +3,7 @@ import subprocess
 import platform
 import logging
 
-from _my_pytools._setup._utils import add_dependency
+from demo_my_pytools._setup._utils import add_dependency
 
 logging.basicConfig(level=logging.INFO)
 

@@ -1,8 +1,8 @@
 import pathlib
 import logging
 
-from _my_pytools._setup._setup_uv import setup_uv
-from _my_pytools._setup._utils import get_current_dir
+from demo_my_pytools._setup._setup_uv import setup_uv
+from demo_my_pytools._setup._utils import get_current_dir
 
 logging.basicConfig(level=logging.INFO)
 

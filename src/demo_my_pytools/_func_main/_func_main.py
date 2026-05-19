@@ -1,6 +1,6 @@
 from functools import wraps
 
-from _my_pytools._func_main._helpers_main import (
+from demo_my_pytools._func_main._helpers_main import (
     assert_main_name, 
     assert_main_has_no_arguments, 
     assert_main_returns_none, 

@@ -1,4 +1,4 @@
-from _my_pytools.tools import main_check
+from demo_my_pytools.tools import main_check
 
 def foo(x: int, y: str) -> str:
     """Good function that should pass type checking."""
