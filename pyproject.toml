@@ -1,5 +1,5 @@
 [project]
-name = "_my-pytools"
+name = "demo_my-pytools"
 version = "0.1.0"
 readme = "README.md"
 requires-python = ">=3.12"
