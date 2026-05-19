@@ -1,2 +1,3 @@
-with open('./package_name.txt', 'r') as f:
-    __package_name__ = f.read().strip()
+import pathlib
+
+__package_name__ = pathlib.Path(__file__).parent.name
