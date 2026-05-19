@@ -1,6 +1,6 @@
 import pathlib
 
-from src._my_pytools._maintenance._utils import (
+from _my_pytools._maintenance._utils import (
     create_init_file,
     get_root_path,
     get_src_root,

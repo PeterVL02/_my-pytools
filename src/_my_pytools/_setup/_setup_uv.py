@@ -3,7 +3,7 @@ import subprocess
 import platform
 import logging
 
-from src._my_pytools._setup._utils import add_dependency
+from _my_pytools._setup._utils import add_dependency
 
 logging.basicConfig(level=logging.INFO)
 
@@ -50,7 +50,7 @@ def _write_file_lines(path: Path, lines: list[str]) -> None:
 
 
 def _has_main_check_import(lines: list[str]) -> bool:
-    return any(line.strip() == 'from src.tools import main_check' for line in lines)
+    return any(line.strip() == 'from _my_pytools.tools import main_check' for line in lines)
 
 
 def _insert_main_check_import(lines: list[str]) -> list[str]:
@@ -58,9 +58,9 @@ def _insert_main_check_import(lines: list[str]) -> list[str]:
         return lines
 
     if lines and lines[0].startswith('#!'):
-        return [lines[0], 'from src.tools import main_check\n'] + lines[1:]
+        return [lines[0], 'from _my_pytools.tools import main_check\n'] + lines[1:]
 
-    return ['from src.tools import main_check\n'] + lines
+    return ['from _my_pytools.tools import main_check\n'] + lines
 
 
 def _decorate_main_function(lines: list[str]) -> list[str]:
