@@ -9,8 +9,8 @@ dependencies = [
 ]
 
 [project.scripts]
-_my-maintain = "_my_pytools.cli:main_maintenance"
-_my-setup = "_my_pytools.cli:setup_project"
+_my-maintain = "demo_my_pytools.cli:main_maintenance"
+_my-setup = "demo_my_pytools.cli:setup_project"
 
 [build-system]
 requires = ["hatchling"]
