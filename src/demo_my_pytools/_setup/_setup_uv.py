@@ -4,6 +4,7 @@ import platform
 import logging
 
 from demo_my_pytools._setup._utils import add_dependency
+from demo_my_pytools.__init__ import __package_name__
 
 logging.basicConfig(level=logging.INFO)
 
@@ -50,7 +51,7 @@ def _write_file_lines(path: Path, lines: list[str]) -> None:
 
 
 def _has_main_check_import(lines: list[str]) -> bool:
-    return any(line.strip() == 'from _my_pytools.tools import main_check' for line in lines)
+    return any(line.strip() == f'from {__package_name__}.tools import main_check' for line in lines)
 
 
 def _insert_main_check_import(lines: list[str]) -> list[str]:
@@ -58,9 +59,9 @@ def _insert_main_check_import(lines: list[str]) -> list[str]:
         return lines
 
     if lines and lines[0].startswith('#!'):
-        return [lines[0], 'from _my_pytools.tools import main_check\n'] + lines[1:]
+        return [lines[0], f'from {__package_name__}.tools import main_check\n'] + lines[1:]
 
-    return ['from _my_pytools.tools import main_check\n'] + lines
+    return [f'from {__package_name__}.tools import main_check\n'] + lines
 
 
 def _decorate_main_function(lines: list[str]) -> list[str]:
