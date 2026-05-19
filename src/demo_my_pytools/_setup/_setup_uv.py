@@ -64,12 +64,23 @@ def _insert_main_check_import(lines: list[str]) -> list[str]:
     return [f'from {__package_name__}.tools import main_check\n'] + lines
 
 
+def _add_none_return_type(line: str) -> str:
+    if '-> None' in line:
+        return line
+    stripped = line.rstrip()
+    if stripped.endswith(':'):
+        return stripped[:-1].rstrip() + ' -> None:\n'
+    return line
+
+
 def _decorate_main_function(lines: list[str]) -> list[str]:
     decorated_lines: list[str] = []
     for line in lines:
         if line.startswith('def main('):
             decorated_lines.append('@main_check\n')
-        decorated_lines.append(line)
+            decorated_lines.append(_add_none_return_type(line))
+        else:
+            decorated_lines.append(line)
     return decorated_lines
 
 

@@ -1,7 +1,6 @@
 import pathlib
 import logging
 
-from demo_my_pytools._setup._setup_uv import setup_uv
 from demo_my_pytools._setup._utils import get_current_dir
 
 logging.basicConfig(level=logging.INFO)
@@ -20,7 +19,6 @@ def _write_beartype_init(package_dir: pathlib.Path) -> None:
 
 def init_beartype() -> None:
     logging.info("Initializing beartype in the package.")
-    setup_uv()
     current_dir = get_current_dir()
     package_dir = _resolve_beartype_package_dir(current_dir)
     _write_beartype_init(package_dir)
